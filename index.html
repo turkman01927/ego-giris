@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EGO Ücretsiz Wi-Fi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container, .fake-google {
+      background: white;
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #003399;
+    }
+    .tab {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    .tab button {
+      flex: 1;
+      background-color: #e0e0e0;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .tab .active {
+      background-color: #003399;
+      color: white;
+    }
+    .form-box {
+      display: none;
+    }
+    .form-box.active {
+      display: block;
+    }
+    input[type="text"], input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .login-btn {
+      background-color: #003399;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .forgot {
+      display: block;
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+    .wifi-img {
+      margin-top: 30px;
+    }
+    .wifi-img img {
+      width: 150px;
+    }
+    footer {
+      font-size: 0.8em;
+      color: gray;
+      margin-top: 20px;
+    }
+
+    .fake-google {
+      display: none;
+    }
+    .fake-google img {
+      width: 120px;
+      margin-top: 40px;
+    }
+    .fake-google input {
+      width: 90%;
+      padding: 10px;
+      margin: 20px 0;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="loginContainer">
+    <h2>EGO ÜCRETSİZ WI-FI</h2>
+    <div class="tab">
+      <button id="loginTab" class="active">Giriş</button>
+      <button id="registerTab">Kayıt Ol</button>
+    </div>
+
+    <div id="loginForm" class="form-box active">
+      <input type="text" placeholder="Telefon Numarası" />
+      <input type="password" placeholder="Şifre" />
+      <a class="forgot" href="#">Şifremi Unuttum</a>
+      <button class="login-btn" onclick="showFakeGoogle()">Giriş Yap</button>
+    </div>
+
+    <div id="registerForm" class="form-box">
+      <input type="text" placeholder="Ad Soyad" />
+      <input type="text" placeholder="Telefon Numarası" />
+      <input type="password" placeholder="Şifre Belirle" />
+      <button class="login-btn">Kayıt Ol</button>
+    </div>
+
+    <div class="wifi-img">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Wifi_icon.svg/2048px-Wifi_icon.svg.png" alt="WiFi" />
+      <p><strong>BU ARAÇTA ÜCRETSİZ WI-FI HİZMETİ SUNULMAKTADIR</strong></p>
+    </div>
+
+    <footer>© Tüm Hakları Saklıdır 2025</footer>
+  </div>
+
+  <div class="fake-google" id="fakeGoogle">
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" />
+    <input type="text" placeholder="Google'da Ara" />
+    <p style="color: #aaa; font-size: 0.8em;"></p>
+  </div>
+
+  <script>
+    const loginTab = document.getElementById('loginTab');
+    const registerTab = document.getElementById('registerTab');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const loginContainer = document.getElementById('loginContainer');
+    const fakeGoogle = document.getElementById('fakeGoogle');
+
+    loginTab.onclick = () => {
+      loginTab.classList.add('active');
+      registerTab.classList.remove('active');
+      loginForm.classList.add('active');
+      registerForm.classList.remove('active');
+    };
+
+    registerTab.onclick = () => {
+      registerTab.classList.add('active');
+      loginTab.classList.remove('active');
+      registerForm.classList.add('active');
+      loginForm.classList.remove('active');
+    };
+
+    function showFakeGoogle() {
+      loginContainer.style.display = 'none';
+      fakeGoogle.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
